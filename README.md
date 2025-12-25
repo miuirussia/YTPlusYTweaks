@@ -218,10 +218,10 @@ Examples:
 **Used open-source libraries are listed in the Open Source Libraries section**
 
 ## FAQ
-- [🇺🇸 English FAQ](FAQs/FAQ_EN.md)
-- [🇷🇺 ЧаВо на Русском](FAQs/FAQ_RU.md)
-- [🇮🇹 FAQ in Italiano](FAQs/FAQ_IT.md)
-- [🇵🇱 FAQ po polsku](FAQs/FAQ_PL.md)
+- [🇺🇸 English FAQ](https://github.com/dayanch96/YTLite/blob/main/FAQs/FAQ_EN.md)
+- [🇷🇺 ЧаВо на Русском](https://github.com/dayanch96/YTLite/blob/main/FAQs/FAQ_RU.md)
+- [🇮🇹 FAQ in Italiano](https://github.com/dayanch96/YTLite/blob/main/FAQs/FAQ_IT.md)
+- [🇵🇱 FAQ po polsku](https://github.com/dayanch96/YTLite/blob/main/FAQs/FAQ_PL.md)
 
 ## Supported YouTube Version
 <ul>
