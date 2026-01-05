@@ -71,7 +71,7 @@ on:
         type: string
 
       tweak_version:
-        description: "The version of the tweak to use (optional - leave empty to use latest from dayanch96/YTLite/releases)"
+        description: "The version of YTLite to use. E.g. 5.2b3 (optional - leave empty to use latest tag from github.com/dayanch96/YTLite/tags)"
         default: ""
         required: false
         type: string
@@ -280,8 +280,11 @@ jobs:
             echo "Latest version found: $VERSION (tag: $LATEST_TAG)"
             echo "version=$VERSION" >> $GITHUB_OUTPUT
           else
-            echo "Using provided version: ${{ inputs.tweak_version }}"
-            echo "version=${{ inputs.tweak_version }}" >> $GITHUB_OUTPUT
+            # Normalize version: remove 'v' prefix if present (tag is 'v5.2b3', but we store without 'v')
+            VERSION="${{ inputs.tweak_version }}"
+            VERSION="${VERSION#v}"
+            echo "Using provided version: $VERSION"
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
           fi
         env:
           GITHUB_TOKEN: ${{ github.token }}
