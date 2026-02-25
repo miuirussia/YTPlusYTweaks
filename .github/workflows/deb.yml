@@ -320,7 +320,7 @@ jobs:
 
       - name: Create cyan
         run: |
-          pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+          pipx install --force https://github.com/iOSDecrypted/cyanide/archive/main.zip
           cgen -f *.deb -o ytlite.cyan
 
       - name: Zip DEBs
