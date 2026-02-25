@@ -102,7 +102,10 @@ jobs:
         uses: ./.github/actions/check-version
 
       - name: Install dependencies
-        run: brew install make ldid
+        run: |
+          brew install make ldid pipx
+          pipx ensurepath
+          pipx ensurepath --global
 
       - name: Set PATH environment variable
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
@@ -314,13 +317,6 @@ jobs:
           [ -f "demc.deb" ] && mv "demc.deb" "DontEatMyContent.deb"
           [ -f "gonerino.deb" ] && mv "gonerino.deb" "Gonerino.deb"
           echo "Renamed DEB files to their full names"
-
-      - name: Install pipx and cyan
-        run: |
-          apt update && apt install pipx binutils-2.26 tar
-          pipx ensurepath
-          pipx ensurepath --global
-          pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
 
       - name: Create cyan
         run: |
