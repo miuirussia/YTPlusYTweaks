@@ -315,6 +315,17 @@ jobs:
           [ -f "gonerino.deb" ] && mv "gonerino.deb" "Gonerino.deb"
           echo "Renamed DEB files to their full names"
 
+      - name: Install pipx and cyan
+        run: |
+          apt update && apt install pipx binutils-2.26 tar
+          pipx ensurepath
+          pipx ensurepath --global
+          pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+
+      - name: Create cyan
+        run: |
+          cgen -f *.deb -o ytlite.cyan
+
       - name: Zip DEBs
         run: |
           cd ${{ github.workspace }}/debs
@@ -327,6 +338,7 @@ jobs:
           tag_name: debs-${{ github.run_number }}
           name: YTPlusYTweaks_${{ steps.ytlite_version.outputs.version }}_SDK${{ inputs.sdk_version }} (${{ github.run_number }})
           files: |
+            *.cyan
             debs/*.deb
             debs.zip
           draft: true
